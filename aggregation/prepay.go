@@ -51,3 +51,19 @@ type AliPayExtend struct {
 	IndustryRefluxInfo   string  `json:"industry_reflux_info,omitempty"`    // 行业数据回流信息
 	CardType             string  `json:"card_type,omitempty"`               // 卡类型
 }
+
+// WeChatPayPrepay 微信支付统一下单
+type WeChatPayPrepay struct {
+	Prepay
+	GoodsTag  string     `json:"goods_tag,omitempty"`  // 订单优惠标记
+	LimitPay  string     `json:"limit_pay,omitempty"`  // 微信禁用信用卡
+	SceneInfo *SceneInfo `json:"scene_info,omitempty"` // 场景信息
+}
+
+// SceneInfo 场景信息
+type SceneInfo struct {
+	ID       string `json:"id,omitempty"`        // 门店ID
+	Name     string `json:"name,omitempty"`      // 门店名称
+	AreaCode string `json:"area_code,omitempty"` // 门店行政区划码
+	Address  string `json:"address,omitempty"`   // 门店详细地址
+}
